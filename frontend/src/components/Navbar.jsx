@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -42,10 +42,10 @@ function Navbar() {
   return (
     <PillNav
       logo={logo}
-      logoAlt="Medi Mitra Logo"
+      logoAlt="Sehat-Saathi Logo"
       items={navItems}
       activeHref={location.pathname}
-      className="medi-mitra-nav"
+      className="Sehat-Saathi-nav"
       baseColor="#008170"
       pillColor="#fff"
       hoveredPillTextColor="#fff"
@@ -56,3 +56,4 @@ function Navbar() {
 }
 
 export default Navbar;
+

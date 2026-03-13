@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+﻿import React, { useState, useRef } from "react";
 import { io } from "socket.io-client";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
@@ -82,7 +82,7 @@ const Signup = () => {
         // ignore if redux not available
       }
 
-      // After signup → connect socket.io
+      // After signup â†’ connect socket.io
       const socket = io(API_URL, { 
         withCredentials: true,
         auth: { token: data.token }
@@ -171,7 +171,7 @@ const Signup = () => {
             >
               <img
                 src={logo}
-                alt="Medi Mitra Logo"
+                alt="Sehat-Saathi Logo"
                 style={{
                   width: '120px',
                   height: '120px',
@@ -182,7 +182,7 @@ const Signup = () => {
               />
             </div>
 
-            <h2 className="text-3xl font-bold mb-2" style={{ color: '#0ef6cc' }}>Join Medi Mitra</h2>
+            <h2 className="text-3xl font-bold mb-2" style={{ color: '#0ef6cc' }}>Join Sehat-Saathi</h2>
             <p className="text-sm" style={{ color: '#b8fff7' }}>Create your account to access healthcare services</p>
           </div>
 
@@ -375,7 +375,7 @@ const Signup = () => {
                 size="full"
                 disabled={loading}
               >
-                <span>🎉</span>
+                <span>ðŸŽ‰</span>
                 {loading ? "Creating..." : "Create Account"}
               </AnimatedButton>
             </div>
@@ -397,7 +397,7 @@ const Signup = () => {
   );
 };
 
-/* 🔹 Small Reusable Input Component */
+/* ðŸ”¹ Small Reusable Input Component */
 const InputField = ({ label, ...props }) => (
   <div>
     <label className="block text-sm font-medium mb-2 text-teal-100/80">
@@ -412,7 +412,7 @@ const InputField = ({ label, ...props }) => (
   </div>
 );
 
-/* 🔹 Small Reusable Select Component */
+/* ðŸ”¹ Small Reusable Select Component */
 const SelectField = ({ label, options, ...props }) => (
   <div>
     <label className="block text-sm font-medium mb-2 text-teal-100/80">
@@ -434,3 +434,4 @@ const SelectField = ({ label, options, ...props }) => (
 );
 
 export default Signup;
+

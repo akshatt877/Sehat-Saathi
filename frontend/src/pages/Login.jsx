@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 // Use shared socket helper instead of creating a new raw client each time
@@ -120,7 +120,7 @@ function Login() {
             >
               <img
                 src={logo}
-                alt="Medi Mitra Logo"
+                alt="Sehat-Saathi Logo"
                 style={{
                   width: "120px",
                   height: "120px",
@@ -196,7 +196,7 @@ function Login() {
               size="full"
               disabled={loading}
             >
-              <span>🔓</span>
+              <span>ðŸ”“</span>
               {loading ? "Logging in..." : "Login"}
             </AnimatedButton>
           </div>
@@ -220,3 +220,4 @@ function Login() {
 }
 
 export default Login;
+

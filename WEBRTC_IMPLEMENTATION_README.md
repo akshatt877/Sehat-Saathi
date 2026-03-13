@@ -1,4 +1,4 @@
-# Medi-Mitra: Complete WebRTC Telemedicine Implementation
+﻿# Sehat-Saathi: Complete WebRTC Telemedicine Implementation
 
 ![WebRTC](https://img.shields.io/badge/WebRTC-Enabled-green)
 ![React](https://img.shields.io/badge/React-18-blue)
@@ -7,89 +7,89 @@
 
 A comprehensive telemedicine platform with real-time video calling capabilities, built using WebRTC technology for secure peer-to-peer communication between doctors and patients.
 
-## 🏥 Overview
+## ðŸ¥ Overview
 
-Medi-Mitra is a full-stack telemedicine solution that enables high-quality video consultations between healthcare providers and patients. The platform features a robust WebRTC implementation with advanced signaling, ICE handling, and media stream management.
+Sehat-Saathi is a full-stack telemedicine solution that enables high-quality video consultations between healthcare providers and patients. The platform features a robust WebRTC implementation with advanced signaling, ICE handling, and media stream management.
 
-## 🌟 Key Features
+## ðŸŒŸ Key Features
 
-### 🎥 **Real-Time Video Calling**
+### ðŸŽ¥ **Real-Time Video Calling**
 - **Peer-to-Peer Communication**: Direct WebRTC connections between doctor and patient
 - **High-Quality Video**: HD video streaming with automatic quality adaptation
 - **Crystal-Clear Audio**: Two-way audio communication with noise suppression
 - **Cross-Platform Support**: Works on desktop, mobile, and tablet devices
 
-### 🔐 **Security & Privacy**
+### ðŸ” **Security & Privacy**
 - **End-to-End Encryption**: All communication encrypted via WebRTC DTLS
 - **Secure Signaling**: Socket.IO with authentication tokens
 - **HIPAA Compliant**: Designed with healthcare privacy standards in mind
 - **No Data Storage**: Video/audio streams are not recorded or stored
 
-### 🚀 **Advanced WebRTC Features**
+### ðŸš€ **Advanced WebRTC Features**
 - **Multiple ICE Servers**: STUN/TURN servers for reliable connectivity
 - **Network Resilience**: Automatic reconnection and ICE candidate handling
 - **Adaptive Streaming**: Bandwidth optimization based on network conditions
 - **Browser Compatibility**: Works across Chrome, Firefox, Safari, and Edge
 
-## 🏗️ Architecture Overview
+## ðŸ—ï¸ Architecture Overview
 
 ```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Doctor App    │    │  Signaling      │    │   Patient App   │
-│   (Frontend)    │◄──►│   Server        │◄──►│   (Frontend)    │
-│                 │    │  (Backend)      │    │                 │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-         │                       │                       │
-         │              ┌────────▼────────┐              │
-         │              │   MongoDB       │              │
-         │              │   Database      │              │
-         │              └─────────────────┘              │
-         │                                               │
-         └───────────────► Direct WebRTC ◄───────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚   Doctor App    â”‚    â”‚  Signaling      â”‚    â”‚   Patient App   â”‚
+â”‚   (Frontend)    â”‚â—„â”€â”€â–ºâ”‚   Server        â”‚â—„â”€â”€â–ºâ”‚   (Frontend)    â”‚
+â”‚                 â”‚    â”‚  (Backend)      â”‚    â”‚                 â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+         â”‚                       â”‚                       â”‚
+         â”‚              â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â–¼â”€â”€â”€â”€â”€â”€â”€â”€â”              â”‚
+         â”‚              â”‚   MongoDB       â”‚              â”‚
+         â”‚              â”‚   Database      â”‚              â”‚
+         â”‚              â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜              â”‚
+         â”‚                                               â”‚
+         â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â–º Direct WebRTC â—„â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
                         Peer-to-Peer Connection
 ```
 
-## 📂 Project Structure
+## ðŸ“‚ Project Structure
 
 ```
-Medi-mitra1/
-├── frontend/                      # React Frontend Application
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── CallNotification.jsx    # Incoming call handler
-│   │   │   └── DashboardLayout.jsx     # Main dashboard UI
-│   │   ├── hooks/
-│   │   │   └── useWebRTC.js           # Core WebRTC implementation
-│   │   ├── pages/
-│   │   │   ├── CallPage.jsx           # Video call interface
-│   │   │   ├── DoctorDashboard.jsx    # Doctor management panel
-│   │   │   └── PatientDashboard.jsx   # Patient interface
-│   │   └── utils/
-│   │       ├── api.js                 # API communication
-│   │       └── socket.js              # Socket.IO client setup
-│   ├── dist/                          # Production build
-│   └── package.json                   # Frontend dependencies
-│
-├── backend/                       # Node.js Backend Server
-│   ├── services/
-│   │   └── socket.js                  # WebRTC signaling server
-│   ├── controllers/
-│   │   ├── authController.js          # User authentication
-│   │   └── mainController.js          # Core API endpoints
-│   ├── models/
-│   │   ├── User.js                    # User data model
-│   │   └── Appointment.js             # Appointment management
-│   ├── routes/
-│   │   ├── auth.js                    # Authentication routes
-│   │   └── main.js                    # Main API routes
-│   └── package.json                   # Backend dependencies
-│
-├── WEBRTC_ISSUE_ANALYSIS.md      # Technical issue documentation
-├── WEBRTC_OPTIMIZATION_RECOMMENDATIONS.md
-└── README.md                      # This documentation
+Sehat-Saathi1/
+â”œâ”€â”€ frontend/                      # React Frontend Application
+â”‚   â”œâ”€â”€ src/
+â”‚   â”‚   â”œâ”€â”€ components/
+â”‚   â”‚   â”‚   â”œâ”€â”€ CallNotification.jsx    # Incoming call handler
+â”‚   â”‚   â”‚   â””â”€â”€ DashboardLayout.jsx     # Main dashboard UI
+â”‚   â”‚   â”œâ”€â”€ hooks/
+â”‚   â”‚   â”‚   â””â”€â”€ useWebRTC.js           # Core WebRTC implementation
+â”‚   â”‚   â”œâ”€â”€ pages/
+â”‚   â”‚   â”‚   â”œâ”€â”€ CallPage.jsx           # Video call interface
+â”‚   â”‚   â”‚   â”œâ”€â”€ DoctorDashboard.jsx    # Doctor management panel
+â”‚   â”‚   â”‚   â””â”€â”€ PatientDashboard.jsx   # Patient interface
+â”‚   â”‚   â””â”€â”€ utils/
+â”‚   â”‚       â”œâ”€â”€ api.js                 # API communication
+â”‚   â”‚       â””â”€â”€ socket.js              # Socket.IO client setup
+â”‚   â”œâ”€â”€ dist/                          # Production build
+â”‚   â””â”€â”€ package.json                   # Frontend dependencies
+â”‚
+â”œâ”€â”€ backend/                       # Node.js Backend Server
+â”‚   â”œâ”€â”€ services/
+â”‚   â”‚   â””â”€â”€ socket.js                  # WebRTC signaling server
+â”‚   â”œâ”€â”€ controllers/
+â”‚   â”‚   â”œâ”€â”€ authController.js          # User authentication
+â”‚   â”‚   â””â”€â”€ mainController.js          # Core API endpoints
+â”‚   â”œâ”€â”€ models/
+â”‚   â”‚   â”œâ”€â”€ User.js                    # User data model
+â”‚   â”‚   â””â”€â”€ Appointment.js             # Appointment management
+â”‚   â”œâ”€â”€ routes/
+â”‚   â”‚   â”œâ”€â”€ auth.js                    # Authentication routes
+â”‚   â”‚   â””â”€â”€ main.js                    # Main API routes
+â”‚   â””â”€â”€ package.json                   # Backend dependencies
+â”‚
+â”œâ”€â”€ WEBRTC_ISSUE_ANALYSIS.md      # Technical issue documentation
+â”œâ”€â”€ WEBRTC_OPTIMIZATION_RECOMMENDATIONS.md
+â””â”€â”€ README.md                      # This documentation
 ```
 
-## 🔧 Technical Implementation
+## ðŸ”§ Technical Implementation
 
 ### 1. **WebRTC Core Setup**
 
@@ -117,12 +117,12 @@ const pcRef = useRef(new RTCPeerConnection({ iceServers }));
 ```javascript
 // WebRTC signaling events
 socket.on("webrtc:offer", ({ to, offer, from }) => {
-  console.log(`📞 WebRTC offer from ${from} to ${to}`);
+  console.log(`ðŸ“ž WebRTC offer from ${from} to ${to}`);
   io.to(to).emit("webrtc:offer", { from, offer });
 });
 
 socket.on("webrtc:answer", ({ to, answer, from }) => {
-  console.log(`📞 WebRTC answer from ${from} to ${to}`);
+  console.log(`ðŸ“ž WebRTC answer from ${from} to ${to}`);
   io.to(to).emit("webrtc:answer", { from, answer });
 });
 
@@ -147,7 +147,7 @@ pcRef.current.ontrack = (event) => {
     remoteVideoRef.current.srcObject = stream;
   } else {
     // Deferred attachment when element becomes available
-    console.log('📦 Stream stored for later attachment');
+    console.log('ðŸ“¦ Stream stored for later attachment');
   }
 };
 
@@ -155,7 +155,7 @@ pcRef.current.ontrack = (event) => {
 const retryRemoteStreamAttachment = () => {
   if (pendingRemoteStreamRef.current && remoteVideoRef.current) {
     remoteVideoRef.current.srcObject = pendingRemoteStreamRef.current;
-    console.log('✅ Pending stream attached successfully');
+    console.log('âœ… Pending stream attached successfully');
   }
 };
 ```
@@ -176,7 +176,7 @@ const handleIceCandidate = async (payload) => {
 };
 ```
 
-## 🚀 Setup & Installation
+## ðŸš€ Setup & Installation
 
 ### Prerequisites
 
@@ -225,7 +225,7 @@ npm run build
 npm run preview
 ```
 
-## 🔄 WebRTC Call Flow
+## ðŸ”„ WebRTC Call Flow
 
 ### 1. **Call Initiation**
 
@@ -291,7 +291,7 @@ const startCall = async (targetUserId) => {
 };
 ```
 
-## 🛠️ Key Components
+## ðŸ› ï¸ Key Components
 
 ### 1. **useWebRTC Hook** (`frontend/src/hooks/useWebRTC.js`)
 
@@ -331,9 +331,9 @@ const startCall = async (targetUserId) => {
 
 {/* Call controls */}
 <div className="call-controls">
-  <button onClick={toggleAudio}>{audioEnabled ? '🎤' : '🔇'}</button>
-  <button onClick={toggleVideo}>{videoEnabled ? '📹' : '📷'}</button>
-  <button onClick={endCall}>📞</button>
+  <button onClick={toggleAudio}>{audioEnabled ? 'ðŸŽ¤' : 'ðŸ”‡'}</button>
+  <button onClick={toggleVideo}>{videoEnabled ? 'ðŸ“¹' : 'ðŸ“·'}</button>
+  <button onClick={endCall}>ðŸ“ž</button>
 </div>
 ```
 
@@ -352,7 +352,7 @@ const startCall = async (targetUserId) => {
 // Users join rooms using their MongoDB user IDs
 socket.on("join", (userId) => {
   socket.join(userId);
-  console.log(`🏠 User ${userId} joined room`);
+  console.log(`ðŸ  User ${userId} joined room`);
 });
 
 // Relay WebRTC signals between rooms
@@ -361,7 +361,7 @@ socket.on("webrtc:offer", ({ to, offer, from }) => {
 });
 ```
 
-## 🎯 Advanced Features
+## ðŸŽ¯ Advanced Features
 
 ### 1. **Adaptive Quality Control**
 
@@ -388,10 +388,10 @@ pcRef.current.oniceconnectionstatechange = () => {
   const state = pcRef.current.iceConnectionState;
   
   if (state === 'failed') {
-    console.log('🔄 ICE connection failed, attempting restart');
+    console.log('ðŸ”„ ICE connection failed, attempting restart');
     pcRef.current.restartIce();
   } else if (state === 'connected') {
-    console.log('✅ ICE connection established');
+    console.log('âœ… ICE connection established');
   }
 };
 ```
@@ -419,7 +419,7 @@ const getBrowserConstraints = () => {
 };
 ```
 
-## 📊 Performance Optimization
+## ðŸ“Š Performance Optimization
 
 ### 1. **Bandwidth Management**
 
@@ -461,7 +461,7 @@ useEffect(() => {
 }, []);
 ```
 
-## 🐛 Debugging & Monitoring
+## ðŸ› Debugging & Monitoring
 
 ### 1. **Comprehensive Logging**
 
@@ -469,7 +469,7 @@ The implementation includes extensive debugging capabilities:
 
 ```javascript
 // WebRTC state monitoring
-console.log('🔍 WebRTC Debug Check:', {
+console.log('ðŸ” WebRTC Debug Check:', {
   socketConnected: socketRef.current.connected,
   hasOfferListener: socketRef.current.listeners('webrtc:offer').length > 0,
   callState: callState,
@@ -478,7 +478,7 @@ console.log('🔍 WebRTC Debug Check:', {
 });
 
 // Stream attachment tracking
-console.log('📺 Remote stream detected:', {
+console.log('ðŸ“º Remote stream detected:', {
   streamId: stream.id,
   videoTracks: stream.getVideoTracks().length,
   audioTracks: stream.getAudioTracks().length,
@@ -500,7 +500,7 @@ console.log('📺 Remote stream detected:', {
 )}
 ```
 
-## 🔒 Security Considerations
+## ðŸ”’ Security Considerations
 
 ### 1. **Authentication & Authorization**
 
@@ -536,7 +536,7 @@ const mediaConstraints = {
 };
 ```
 
-## 🌐 Deployment
+## ðŸŒ Deployment
 
 ### Production Deployment
 
@@ -546,7 +546,7 @@ const mediaConstraints = {
 npm run build
 
 # Start with PM2
-pm2 start server.js --name "medi-mitra-backend"
+pm2 start server.js --name "Sehat-Saathi-backend"
 ```
 
 2. **Frontend Deployment**:
@@ -573,7 +573,7 @@ ALLOWED_ORIGINS=https://yourdomain.com
 - **Google Cloud**: App Engine + Cloud SQL
 - **Vercel/Netlify**: Frontend static hosting
 
-## 📈 Performance Metrics
+## ðŸ“ˆ Performance Metrics
 
 ### Key Performance Indicators
 
@@ -608,7 +608,7 @@ const getConnectionStats = async () => {
 };
 ```
 
-## 🚨 Troubleshooting
+## ðŸš¨ Troubleshooting
 
 ### Common Issues & Solutions
 
@@ -675,7 +675,7 @@ if (localStreamRef.current) {
 }
 ```
 
-## 🔄 Future Enhancements
+## ðŸ”„ Future Enhancements
 
 ### Planned Features
 
@@ -693,11 +693,11 @@ if (localStreamRef.current) {
 3. **CDN Integration**: Optimized media delivery
 4. **Database Sharding**: Handle increased user load
 
-## 📝 API Documentation
+## ðŸ“ API Documentation
 
 ### WebRTC Socket Events
 
-#### Client → Server
+#### Client â†’ Server
 
 | Event | Payload | Description |
 |-------|---------|-------------|
@@ -707,7 +707,7 @@ if (localStreamRef.current) {
 | `webrtc:ice-candidate` | `{to, candidate, from}` | Share ICE candidate |
 | `join` | `userId` | Join user room |
 
-#### Server → Client
+#### Server â†’ Client
 
 | Event | Payload | Description |
 |-------|---------|-------------|
@@ -725,7 +725,7 @@ if (localStreamRef.current) {
 | `GET` | `/api/users/profile` | Get user profile |
 | `PUT` | `/api/appointments/:id/status` | Update appointment status |
 
-## 👥 Contributing
+## ðŸ‘¥ Contributing
 
 ### Development Guidelines
 
@@ -742,11 +742,11 @@ if (localStreamRef.current) {
 4. Push to branch (`git push origin feature/amazing-feature`)
 5. Open Pull Request
 
-## 📄 License
+## ðŸ“„ License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## ðŸ™ Acknowledgments
 
 - **WebRTC Specification**: W3C and IETF standards
 - **Socket.IO**: Real-time communication library
@@ -754,16 +754,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Node.js Community**: Backend runtime environment
 - **MongoDB**: Database solution
 
-## 📞 Support
+## ðŸ“ž Support
 
 For technical support or questions:
 
-- **Email**: support@medi-mitra.com
+- **Email**: support@Sehat-Saathi.com
 - **Documentation**: [Technical Docs](./WEBRTC_ISSUE_ANALYSIS.md)
-- **Issues**: [GitHub Issues](https://github.com/Rupendra0/Medi-mitra/issues)
+- **Issues**: [GitHub Issues](https://github.com/Rupendra0/Sehat-Saathi/issues)
 
 ---
 
-**Built with ❤️ for better healthcare accessibility**
+**Built with â¤ï¸ for better healthcare accessibility**
 
 *Last Updated: September 28, 2025*

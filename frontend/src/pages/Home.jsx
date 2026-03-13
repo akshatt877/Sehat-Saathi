@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+﻿import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
@@ -137,7 +137,7 @@ function Home() {
               className="relative flex justify-center"
             >
               <div className="relative bg-white/5 backdrop-blur-2xl rounded-3xl p-8 border border-white/10">
-                <img src={logo} alt="Medi Mitra Logo" className="w-72 h-72 lg:w-80 lg:h-80 object-contain"/>
+                <img src={logo} alt="Sehat-Saathi Logo" className="w-72 h-72 lg:w-80 lg:h-80 object-contain"/>
               </div>
             </motion.div>
           </div>
@@ -178,7 +178,7 @@ function Home() {
                 <div style={{ color: '#a2f2df', fontSize: '0.95rem', letterSpacing: '0.03em' }}>{item.label}</div>
               </div>
               <div style={{ color: '#ffffff', fontSize: '2.4rem', fontWeight: 700 }}>
-                {statsLoading ? '—' : numberFormatter.format(item.value)}
+                {statsLoading ? 'â€”' : numberFormatter.format(item.value)}
               </div>
             </div>
           ))}
@@ -254,3 +254,4 @@ function Home() {
 }
 
 export default Home;
+

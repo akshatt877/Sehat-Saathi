@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchDoctorQueue, fetchAttendedPatients, fetchDigitalRecords } from "../utils/dashboardSlice";
 import DashboardLayout from '../components/DashboardLayout';
-import { getSocket } from '../utils/socket'; // ✅ Import getSocket
+import { getSocket } from '../utils/socket'; // âœ… Import getSocket
 import api from '../utils/api';
 import { useLanguage } from '../utils/LanguageProvider';
 import "../styles/dashboard.simple.css";
@@ -152,7 +152,7 @@ export default function DoctorDashboard() {
   const patientQueue = Array.isArray(patientQueueRaw) ? patientQueueRaw : [];
   const attendedPatients = Array.isArray(attendedPatientsRaw) ? attendedPatientsRaw : [];
 
-  // ✅ Get the shared socket instance
+  // âœ… Get the shared socket instance
   const socket = getSocket();
 
   useEffect(() => {
@@ -212,7 +212,7 @@ export default function DoctorDashboard() {
     console.log('Initializing call with patient:', patientId);
 
     if (!patientId || !appointmentId) {
-      console.error('❌ Start call aborted: missing identifiers', { patientId, appointmentId });
+      console.error('âŒ Start call aborted: missing identifiers', { patientId, appointmentId });
       return;
     }
 
@@ -220,7 +220,7 @@ export default function DoctorDashboard() {
     const doctorQuery = doctorId ? `&doctorId=${doctorId}` : '';
     navigate(`/call/${appointmentId}?patientId=${patientId}${doctorQuery}`);
 
-    console.log('📞 Start call - IDs check:', {
+    console.log('ðŸ“ž Start call - IDs check:', {
       patientId,
       appointmentId,
       doctorId,
@@ -244,7 +244,7 @@ export default function DoctorDashboard() {
         console.warn('Start-call API returned non-ok status:', res.status);
         console.error('API error response:', res.data);
       } else {
-        console.log('✅ Start-call API successful');
+        console.log('âœ… Start-call API successful');
       }
     } catch (error) {
       console.error('Failed to signal start of call:', error);
@@ -305,19 +305,19 @@ export default function DoctorDashboard() {
     const doctor = currentUser?.name || 'N/A';
 
     const lines = [
-      '═══════════════════════════════════════════════════',
+      'â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•',
       '           INDIVIDUAL PRESCRIPTION RECORD',
-      '═══════════════════════════════════════════════════',
+      'â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•',
       '',
-      '📋 PATIENT INFORMATION',
-      '─────────────────────────────────────────────────',
+      'ðŸ“‹ PATIENT INFORMATION',
+      'â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€',
       `Patient Name    : ${patientName}`,
       `Patient ID      : ${patientId}`,
       `Visit Date      : ${new Date(visitDate).toLocaleDateString()} ${new Date(visitDate).toLocaleTimeString()}`,
       `Attending Doctor: ${doctor}`,
       '',
-      '💊 PRESCRIBED MEDICATIONS',
-      '═════════════════════════════════════════════════',
+      'ðŸ’Š PRESCRIBED MEDICATIONS',
+      'â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•',
     ];
 
     if (prescriptionData.medicines.length === 0) {
@@ -325,7 +325,7 @@ export default function DoctorDashboard() {
     } else {
       prescriptionData.medicines.forEach((medicine, i) => {
         lines.push(`${i + 1}. MEDICATION ${i + 1}`);
-        lines.push('   ──────────────────────────────────');
+        lines.push('   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€');
         lines.push(`   Medicine Name : ${medicine.name || 'N/A'}`);
         lines.push(`   Dosage        : ${medicine.dosage || 'N/A'}`);
         lines.push(`   Frequency     : ${medicine.frequency || 'N/A'}`);
@@ -335,23 +335,23 @@ export default function DoctorDashboard() {
     }
 
     if (prescriptionData.notes) {
-      lines.push('📝 ADDITIONAL NOTES');
-      lines.push('─────────────────────────────────────────────────');
+      lines.push('ðŸ“ ADDITIONAL NOTES');
+      lines.push('â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€');
       lines.push(prescriptionData.notes);
       lines.push('');
     }
 
     if (prescriptionData.nextVisit) {
-      lines.push('📅 FOLLOW-UP VISIT');
-      lines.push('─────────────────────────────────────────────────');
+      lines.push('ðŸ“… FOLLOW-UP VISIT');
+      lines.push('â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€');
       lines.push(`Next Visit: ${prescriptionData.nextVisit}`);
       lines.push('');
     }
 
-    lines.push('═══════════════════════════════════════════════════');
+    lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
     lines.push(`Report Generated: ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`);
-    lines.push('Generated by: Medi-mitra Telemedicine Platform');
-    lines.push('═══════════════════════════════════════════════════');
+    lines.push('Generated by: Sehat-Saathi Telemedicine Platform');
+    lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
 
     return lines.join('\n');
   };
@@ -399,7 +399,7 @@ export default function DoctorDashboard() {
       if (response.ok) {
         console.log('Prescription saved successfully:', response.data);
         
-        // ✅ AUTO-GENERATE INDIVIDUAL PRESCRIPTION TXT FILE
+        // âœ… AUTO-GENERATE INDIVIDUAL PRESCRIPTION TXT FILE
         saveIndividualPrescriptionTxt(
           prescriptionData,
           {
@@ -533,12 +533,12 @@ export default function DoctorDashboard() {
         new Date(historyData.latestVisit).toLocaleDateString() : 'N/A';
       
       const lines = [
-        '═══════════════════════════════════════════════════',
+        'â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•',
         '        COMPLETE PATIENT MEDICAL HISTORY',
-        '═══════════════════════════════════════════════════',
+        'â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•',
         '',
-        '👤 PATIENT INFORMATION',
-        '─────────────────────────────────────────────────',
+        'ðŸ‘¤ PATIENT INFORMATION',
+        'â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€',
         `Patient Name     : ${patient?.name || patientName || 'Unknown'}`,
         `Patient ID       : ${patient?.uniqueId || 'N/A'}`,
         `Email Address    : ${patient?.email || 'Not provided'}`,
@@ -549,37 +549,37 @@ export default function DoctorDashboard() {
         `Total Visits     : ${totalVisits}`,
         `Total Prescriptions : ${totalPrescriptions}`,
         '',
-        '📊 MEDICAL SUMMARY',
-        '─────────────────────────────────────────────────',
+        'ðŸ“Š MEDICAL SUMMARY',
+        'â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€',
         `First Visit      : ${firstVisitFormatted}`,
         `Latest Visit     : ${latestVisitFormatted}`,
         `Report Generated : ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`,
         '',
-        '═══════════════════════════════════════════════════',
+        'â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•',
         '                 COMPLETE VISIT HISTORY',
-        '═══════════════════════════════════════════════════',
+        'â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•',
       ];
 
       // Add each visit with its prescriptions - with enhanced formatting
       if (patientVisits.length === 0) {
         lines.push('');
-        lines.push('📋 No completed visit records found for this patient.');
+        lines.push('ðŸ“‹ No completed visit records found for this patient.');
         lines.push('');
         // Still show prescription history if available
         if (historyData.allPrescriptions && historyData.allPrescriptions.length > 0) {
-          lines.push('💊 PRESCRIPTION HISTORY (Independent Records):');
-          lines.push('═════════════════════════════════════════════════');
+          lines.push('ðŸ’Š PRESCRIPTION HISTORY (Independent Records):');
+          lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
           
           historyData.allPrescriptions.forEach((prescription, index) => {
             lines.push('');
-            lines.push(`📋 PRESCRIPTION ${index + 1} - ${new Date(prescription.createdAt).toLocaleDateString()}`);
-            lines.push('─────────────────────────────────────────────────');
+            lines.push(`ðŸ“‹ PRESCRIPTION ${index + 1} - ${new Date(prescription.createdAt).toLocaleDateString()}`);
+            lines.push('â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€');
             lines.push(`Prescribed Date  : ${new Date(prescription.createdAt).toLocaleDateString()} ${new Date(prescription.createdAt).toLocaleTimeString()}`);
             lines.push(`Prescribing Doctor: ${prescription.doctor?.name || 'N/A'}`);
             lines.push('');
             
             if (prescription.medicines && prescription.medicines.length > 0) {
-              lines.push('💊 PRESCRIBED MEDICATIONS:');
+              lines.push('ðŸ’Š PRESCRIBED MEDICATIONS:');
               prescription.medicines.forEach((medicine, medIndex) => {
                 lines.push(`   ${medIndex + 1}. Medicine: ${medicine.name || 'N/A'}`);
                 lines.push(`      Dosage   : ${medicine.dosage || 'N/A'}`);
@@ -590,24 +590,24 @@ export default function DoctorDashboard() {
             }
             
             if (prescription.notes) {
-              lines.push('📝 PRESCRIPTION NOTES:');
+              lines.push('ðŸ“ PRESCRIPTION NOTES:');
               lines.push(`${prescription.notes}`);
               lines.push('');
             }
             
             if (prescription.nextVisit) {
-              lines.push(`📅 Next Visit: ${prescription.nextVisit}`);
+              lines.push(`ðŸ“… Next Visit: ${prescription.nextVisit}`);
               lines.push('');
             }
             
-            lines.push('─────────────────────────────────────────────────');
+            lines.push('â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€');
           });
         }
       } else {
         patientVisits.forEach((visit, index) => {
           lines.push('');
-          lines.push(`🏥 VISIT ${patientVisits.length - index} - ${new Date(visit.visitDate).toLocaleDateString()}`);
-          lines.push('═════════════════════════════════════════════════');
+          lines.push(`ðŸ¥ VISIT ${patientVisits.length - index} - ${new Date(visit.visitDate).toLocaleDateString()}`);
+          lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
           lines.push(`Visit Date       : ${new Date(visit.visitDate).toLocaleDateString()} ${new Date(visit.visitDate).toLocaleTimeString()}`);
           lines.push(`Attending Doctor : ${visit.doctor?.name || 'N/A'}`);
           lines.push(`Visit Status     : ${visit.status?.toUpperCase() || 'N/A'}`);
@@ -619,7 +619,7 @@ export default function DoctorDashboard() {
           const complaints = visit.complaints || '';
           const reason = visit.reason || '';
           
-          lines.push('🔍 CHIEF COMPLAINTS & SYMPTOMS:');
+          lines.push('ðŸ” CHIEF COMPLAINTS & SYMPTOMS:');
           if (symptoms) {
             lines.push(`Symptoms     : ${symptoms}`);
           }
@@ -636,8 +636,8 @@ export default function DoctorDashboard() {
           
           // Prescriptions for this visit with enhanced formatting
           if (visit.prescription && visit.prescription.medicines && visit.prescription.medicines.length > 0) {
-            lines.push('💊 PRESCRIBED MEDICATIONS:');
-            lines.push('─────────────────────────────────────────────────');
+            lines.push('ðŸ’Š PRESCRIBED MEDICATIONS:');
+            lines.push('â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€');
             
             visit.prescription.medicines.forEach((medicine, medIndex) => {
               lines.push(`${medIndex + 1}. Medicine: ${medicine.name || 'N/A'}`);
@@ -648,29 +648,29 @@ export default function DoctorDashboard() {
             });
             
             if (visit.prescription.notes) {
-              lines.push('📝 DOCTOR\'S NOTES & RECOMMENDATIONS:');
+              lines.push('ðŸ“ DOCTOR\'S NOTES & RECOMMENDATIONS:');
               lines.push(`${visit.prescription.notes}`);
               lines.push('');
             }
             
             if (visit.prescription.nextVisit) {
-              lines.push(`📅 Next Visit Recommended: ${visit.prescription.nextVisit}`);
+              lines.push(`ðŸ“… Next Visit Recommended: ${visit.prescription.nextVisit}`);
               lines.push('');
             }
           } else {
-            lines.push('💊 No prescriptions recorded for this visit.');
+            lines.push('ðŸ’Š No prescriptions recorded for this visit.');
             lines.push('');
           }
           
-          lines.push('─────────────────────────────────────────────────');
+          lines.push('â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€');
         });
       }
 
       // Add medication summary section
       lines.push('');
-      lines.push('═══════════════════════════════════════════════════');
+      lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
       lines.push('                 MEDICATION SUMMARY');
-      lines.push('═══════════════════════════════════════════════════');
+      lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
       
       // Collect all unique medications across all visits
       const allMedications = new Map();
@@ -724,8 +724,8 @@ export default function DoctorDashboard() {
       }
 
       if (allMedications.size > 0) {
-        lines.push('📊 All medications prescribed to this patient:');
-        lines.push('─────────────────────────────────────────────────');
+        lines.push('ðŸ“Š All medications prescribed to this patient:');
+        lines.push('â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€');
         
         const sortedMeds = Array.from(allMedications.values())
           .sort((a, b) => b.prescriptionCount - a.prescriptionCount);
@@ -743,14 +743,14 @@ export default function DoctorDashboard() {
       }
 
       lines.push('');
-      lines.push('═══════════════════════════════════════════════════');
+      lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
       lines.push('This complete medical history was generated by');
-      lines.push('Medi-mitra Telemedicine Platform');
+      lines.push('Sehat-Saathi Telemedicine Platform');
       lines.push('');
-      lines.push('⚠️  CONFIDENTIAL MEDICAL INFORMATION');
+      lines.push('âš ï¸  CONFIDENTIAL MEDICAL INFORMATION');
       lines.push('This comprehensive report contains all medical');
       lines.push('records and should be handled with utmost care.');
-      lines.push('═══════════════════════════════════════════════════');
+      lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
 
       // Download the complete history file
       const blob = new Blob([lines.join('\n')], { type: 'text/plain; charset=utf-8' });
@@ -790,29 +790,29 @@ export default function DoctorDashboard() {
     const status = patient.status || 'N/A';
 
     const lines = [
-      '════════════════════════════',
+      'â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•',
       'MEDICAL PRESCRIPTION REPORT',
-      '════════════════════════════',
+      'â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•',
       '',
-      '📋 PATIENT INFORMATION',
-      '════════════════════════════',
+      'ðŸ“‹ PATIENT INFORMATION',
+      'â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•',
       `Patient Name    : ${patientName}`,
       `Patient ID      : ${patientId}`,
       `Email Address   : ${patientEmail}`,
       `Phone Number    : ${patientPhone}`,
       '',
-      '🏥 VISIT INFORMATION',
-      '════════════════════════════',
+      'ðŸ¥ VISIT INFORMATION',
+      'â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•',
       `Visit Date      : ${new Date(visitDate).toLocaleDateString()} ${new Date(visitDate).toLocaleTimeString()}`,
       `Attending Doctor: ${doctor}`,
       `Visit Status    : ${status.toUpperCase()}`,
       '',
       ' COMPLAINTS & SYMPTOMS',
-      '════════════════════════════',
+      'â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•',
       `${complaints}`,
       '',
       ' PRESCRIBED MEDICATIONS',
-      '════════════════════════════',
+      'â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•',
     ];
 
     // Get medicines from prescriptions array - each prescription has a medicines array
@@ -833,7 +833,7 @@ export default function DoctorDashboard() {
     } else {
       allMedicines.forEach((medicine, i) => {
         lines.push(`${i + 1}. MEDICATION ${i + 1}`);
-        lines.push('════════════════════════════');
+        lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
         lines.push(`   Medicine Name : ${medicine.name || 'N/A'}`);
         lines.push(`   Dosage        : ${medicine.dosage || 'N/A'}`);
         lines.push(`   Frequency     : ${medicine.frequency || 'N/A'}`);
@@ -844,7 +844,7 @@ export default function DoctorDashboard() {
       // Add prescription notes if any
       if (prescriptionNotes.length > 0) {
         lines.push(' ADDITIONAL NOTES');
-        lines.push('════════════════════════════');
+        lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
         prescriptionNotes.forEach((note, i) => {
           lines.push(`${i + 1}. ${note}`);
         });
@@ -856,15 +856,15 @@ export default function DoctorDashboard() {
     const nextVisit = patient.nextVisit || prescriptionsSafe[0]?.nextVisit;
     if (nextVisit) {
       lines.push('FOLLOW-UP VISIT');
-      lines.push('════════════════════════════');
+      lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
       lines.push(`Next Visit: ${nextVisit}`);
       lines.push('');
     }
-              //────────────────────────────
-    lines.push('════════════════════════════');
+              //â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
     lines.push(`Report Generated: ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`);
-    lines.push('Generated by: Medi-mitra Telemedicine Platform');
-    lines.push('════════════════════════════');
+    lines.push('Generated by: Sehat-Saathi Telemedicine Platform');
+    lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
 
     const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
@@ -981,7 +981,7 @@ export default function DoctorDashboard() {
                       <div key={p._id || p.id || idx} style={{ padding: 12, borderBottom: '1px dashed rgba(255,255,255,0.03)', marginBottom: 8 }}>
                         <div style={{ color: '#00ffd0', fontWeight: 600 }}>{p.patient?.name || p.name || 'Unknown'}</div>
                         <div style={{ color: '#cfeee6', fontSize: 13 }}>
-                          {parsePossibleDate(p) ? new Date(parsePossibleDate(p)).toLocaleString() : '—'}
+                          {parsePossibleDate(p) ? new Date(parsePossibleDate(p)).toLocaleString() : 'â€”'}
                         </div>
                         {Array.isArray(p.prescriptions) && p.prescriptions.length > 0 && (
                           <div style={{ marginTop: 6 }}>
@@ -1046,7 +1046,7 @@ export default function DoctorDashboard() {
                     {list.map((p, idx) => {
                       const key = p._id || p.id || (p.patient && (p.patient._id || p.patient.id)) || idx;
                       const prescriptionsSafe = Array.isArray(p.prescriptions) ? p.prescriptions : (Array.isArray(p.patient?.prescriptions) ? p.patient.prescriptions : []);
-                      const patientIdDisplay = p.patient?.uniqueId || p.uniqueId || p.id || p.patient?.id || p.patient?._id || '—';
+                      const patientIdDisplay = p.patient?.uniqueId || p.uniqueId || p.id || p.patient?.id || p.patient?._id || 'â€”';
                       const patientName = p.name || p.patient?.name || 'Unknown';
                       return (
                         <tr key={key} style={{ background: idx % 2 === 0 ? '#18232e' : 'transparent' }}>
@@ -1059,8 +1059,8 @@ export default function DoctorDashboard() {
                               <ul style={{ margin: 0, paddingLeft: 16 }}>
                                 {prescriptionsSafe.map((presc, i) => (
                                   <li key={i}>
-                                    <strong>{presc.medicine || presc.medication || '—'}</strong> - {presc.dosage || presc.frequency || '—'} ({presc.date || presc.createdAt || '—'})<br />
-                                    <span style={{ fontSize: '0.95em', color: '#00ffd0' }}>{presc.notes || '—'}</span>
+                                    <strong>{presc.medicine || presc.medication || 'â€”'}</strong> - {presc.dosage || presc.frequency || 'â€”'} ({presc.date || presc.createdAt || 'â€”'})<br />
+                                    <span style={{ fontSize: '0.95em', color: '#00ffd0' }}>{presc.notes || 'â€”'}</span>
                                   </li>
                                 ))}
                               </ul>
@@ -1274,12 +1274,12 @@ export default function DoctorDashboard() {
       const patientPhone = patientData?.patient?.phone || patientData?.phone || 'N/A';
       
       const lines = [];
-      lines.push('═══════════════════════════════════════════════════');
+      lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
       lines.push('           PATIENT MEDICAL TIMELINE');
-      lines.push('═══════════════════════════════════════════════════');
+      lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
       lines.push('');
-      lines.push('👤 PATIENT INFORMATION');
-      lines.push('─────────────────────────────────────────────────');
+      lines.push('ðŸ‘¤ PATIENT INFORMATION');
+      lines.push('â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€');
       lines.push(`Patient Name    : ${patientName}`);
       lines.push(`Patient ID      : ${patientId}`);
       lines.push(`Email Address   : ${patientEmail}`);
@@ -1289,8 +1289,8 @@ export default function DoctorDashboard() {
       if (pVisits.length === 0) {
         lines.push('No visit records found for this patient.');
       } else {
-        lines.push('📋 MEDICAL HISTORY & VISITS');
-        lines.push('═════════════════════════════════════════════════');
+        lines.push('ðŸ“‹ MEDICAL HISTORY & VISITS');
+        lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
         
         pVisits.forEach((pv, i) => {
           const v = pv.visit;
@@ -1299,13 +1299,13 @@ export default function DoctorDashboard() {
           const complaints = v.complaints || v.reason || (Array.isArray(v.symptoms) ? v.symptoms.join(', ') : v.symptoms) || 'No complaints recorded';
           const visitStatus = v.status || 'N/A';
           
-          lines.push(`🏥 VISIT ${i + 1}`);
-          lines.push('─────────────────────────────────────────────────');
+          lines.push(`ðŸ¥ VISIT ${i + 1}`);
+          lines.push('â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€');
           lines.push(`Visit Date      : ${new Date(visitDate).toLocaleDateString()} ${new Date(visitDate).toLocaleTimeString()}`);
           lines.push(`Attending Doctor: ${doctors}`);
           lines.push(`Visit Status    : ${visitStatus.toUpperCase()}`);
           lines.push('');
-          lines.push('🔍 Complaints & Symptoms:');
+          lines.push('ðŸ” Complaints & Symptoms:');
           lines.push(`${complaints}`);
           lines.push('');
           
@@ -1336,7 +1336,7 @@ export default function DoctorDashboard() {
           });
           
           if (allMedicines.length > 0) {
-            lines.push('💊 PRESCRIBED MEDICATIONS:');
+            lines.push('ðŸ’Š PRESCRIBED MEDICATIONS:');
             allMedicines.forEach((medicine, j) => {
               lines.push(`   ${j + 1}. Medicine: ${medicine.name || 'N/A'}`);
               lines.push(`      Dosage   : ${medicine.dosage || 'N/A'}`);
@@ -1347,7 +1347,7 @@ export default function DoctorDashboard() {
             
             // Add prescription notes
             if (prescriptionNotes.length > 0) {
-              lines.push('📝 PRESCRIPTION NOTES:');
+              lines.push('ðŸ“ PRESCRIPTION NOTES:');
               prescriptionNotes.forEach((note, k) => {
                 lines.push(`   ${k + 1}. ${note}`);
               });
@@ -1356,25 +1356,25 @@ export default function DoctorDashboard() {
             
             // Add next visit info if available
             if (nextVisit) {
-              lines.push(`📅 Next Visit: ${nextVisit}`);
+              lines.push(`ðŸ“… Next Visit: ${nextVisit}`);
               lines.push('');
             }
           } else {
-            lines.push('💊 No prescriptions recorded for this visit.');
+            lines.push('ðŸ’Š No prescriptions recorded for this visit.');
             lines.push('');
           }
           
-          lines.push('═════════════════════════════════════════════════');
+          lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
           lines.push('');
         });
       }
       
-      lines.push(`📊 SUMMARY: Total ${pVisits.length} visit(s) on record`);
+      lines.push(`ðŸ“Š SUMMARY: Total ${pVisits.length} visit(s) on record`);
       lines.push('');
-      lines.push('═══════════════════════════════════════════════════');
+      lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
       lines.push(`Report Generated: ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`);
-      lines.push('Generated by: Medi-mitra Telemedicine Platform');
-      lines.push('═══════════════════════════════════════════════════');
+      lines.push('Generated by: Sehat-Saathi Telemedicine Platform');
+      lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
       
       const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
       const url = URL.createObjectURL(blob);
@@ -1401,31 +1401,31 @@ export default function DoctorDashboard() {
       const nextVisit = record.nextVisit || prescriptions[0]?.nextVisit || 'No follow-up needed';
 
       const lines = [
-        '═══════════════════════════════════════════════════',
+        'â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•',
         '        COMPREHENSIVE PATIENT RECORD REPORT',
-        '═══════════════════════════════════════════════════',
+        'â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•',
         '',
-        '👤 PATIENT INFORMATION',
-        '─────────────────────────────────────────────────',
+        'ðŸ‘¤ PATIENT INFORMATION',
+        'â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€',
         `Patient Name     : ${patientName}`,
         `Patient ID       : ${patientId}`,
         `Email Address    : ${patientEmail}`,
         `Phone Number     : ${patientPhone}`,
         '',
-        '🏥 VISIT DETAILS',
-        '─────────────────────────────────────────────────',
+        'ðŸ¥ VISIT DETAILS',
+        'â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€',
         `Visit Date       : ${new Date(visitDate).toLocaleDateString()} ${new Date(visitDate).toLocaleTimeString()}`,
         `Attending Doctor : ${doctor}`,
         `Visit Status     : ${status.toUpperCase()}`,
         `Record ID        : ${record._id || 'N/A'}`,
         '',
-        '🔍 MEDICAL ASSESSMENT',
-        '─────────────────────────────────────────────────',
+        'ðŸ” MEDICAL ASSESSMENT',
+        'â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€',
         'Chief Complaints & Symptoms:',
         `${complaints}`,
         '',
-        '💊 PRESCRIPTION DETAILS',
-        '═════════════════════════════════════════════════',
+        'ðŸ’Š PRESCRIPTION DETAILS',
+        'â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•',
       ];
 
       // Extract medicines from prescriptions array - each prescription has a medicines array
@@ -1449,19 +1449,19 @@ export default function DoctorDashboard() {
         
         allMedicines.forEach((medicine, i) => {
           lines.push(`${i + 1}. MEDICATION ${i + 1}`);
-          lines.push('   ╭──────────────────────────────────────╮');
-          lines.push(`   │ Medicine Name : ${(medicine.name || 'N/A').padEnd(22)} │`);
-          lines.push(`   │ Dosage        : ${(medicine.dosage || 'N/A').padEnd(22)} │`);
-          lines.push(`   │ Frequency     : ${(medicine.frequency || 'N/A').padEnd(22)} │`);
-          lines.push(`   │ Duration      : ${(medicine.duration || 'N/A').padEnd(22)} │`);
-          lines.push('   ╰──────────────────────────────────────╯');
+          lines.push('   â•­â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•®');
+          lines.push(`   â”‚ Medicine Name : ${(medicine.name || 'N/A').padEnd(22)} â”‚`);
+          lines.push(`   â”‚ Dosage        : ${(medicine.dosage || 'N/A').padEnd(22)} â”‚`);
+          lines.push(`   â”‚ Frequency     : ${(medicine.frequency || 'N/A').padEnd(22)} â”‚`);
+          lines.push(`   â”‚ Duration      : ${(medicine.duration || 'N/A').padEnd(22)} â”‚`);
+          lines.push('   â•°â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•¯');
           lines.push('');
         });
         
         // Add prescription notes if any
         if (prescriptionNotes.length > 0) {
-          lines.push('📝 PRESCRIPTION NOTES & INSTRUCTIONS');
-          lines.push('─────────────────────────────────────────────────');
+          lines.push('ðŸ“ PRESCRIPTION NOTES & INSTRUCTIONS');
+          lines.push('â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€');
           prescriptionNotes.forEach((note, i) => {
             lines.push(`${i + 1}. ${note}`);
           });
@@ -1469,26 +1469,26 @@ export default function DoctorDashboard() {
         }
       }
 
-      lines.push('📅 FOLLOW-UP INFORMATION');
-      lines.push('─────────────────────────────────────────────────');
+      lines.push('ðŸ“… FOLLOW-UP INFORMATION');
+      lines.push('â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€');
       lines.push(`Next Visit Recommendation: ${nextVisit}`);
       lines.push('');
       
-      lines.push('📊 RECORD METADATA');
-      lines.push('─────────────────────────────────────────────────');
+      lines.push('ðŸ“Š RECORD METADATA');
+      lines.push('â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€');
       lines.push(`Record Created    : ${record.createdAt ? new Date(record.createdAt).toLocaleString() : 'N/A'}`);
       lines.push(`Last Updated      : ${record.updatedAt ? new Date(record.updatedAt).toLocaleString() : 'N/A'}`);
       lines.push(`Report Generated  : ${new Date().toLocaleString()}`);
       lines.push('');
       
-      lines.push('═══════════════════════════════════════════════════');
+      lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
       lines.push('This is a comprehensive medical record generated by');
-      lines.push('Medi-mitra Telemedicine Platform');
+      lines.push('Sehat-Saathi Telemedicine Platform');
       lines.push('');
-      lines.push('⚠️  CONFIDENTIAL MEDICAL INFORMATION');
+      lines.push('âš ï¸  CONFIDENTIAL MEDICAL INFORMATION');
       lines.push('This report contains sensitive patient data and should');
       lines.push('be handled according to medical privacy regulations.');
-      lines.push('═══════════════════════════════════════════════════');
+      lines.push('â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
 
       const blob = new Blob([lines.join('\n')], { type: 'text/plain; charset=utf-8' });
       const url = URL.createObjectURL(blob);
@@ -1534,7 +1534,7 @@ export default function DoctorDashboard() {
               <tbody>
                 {filtered.map((patient, idx) => {
                   const uniqueKey = `${patient.patientUniqueId}-grouped`;
-                  const lastVisitFormatted = patient.lastVisitDate ? new Date(patient.lastVisitDate).toLocaleDateString() : '—';
+                  const lastVisitFormatted = patient.lastVisitDate ? new Date(patient.lastVisitDate).toLocaleDateString() : 'â€”';
                   
                   return (
                     <tr key={uniqueKey} style={{ background: idx % 2 === 0 ? '#18232e' : 'transparent' }}>
@@ -1574,7 +1574,7 @@ export default function DoctorDashboard() {
                               downloadCompletePatientHistory(patientId, patient.patientName);
                             }}
                           >
-                            � Complete History
+                            ï¿½ Complete History
                           </button>
                           <button 
                             className="btn btn-primary" 
@@ -1633,7 +1633,7 @@ export default function DoctorDashboard() {
                     justifyContent: 'center'
                   }}
                 >
-                  ×
+                  Ã—
                 </button>
               </div>
 
@@ -2107,7 +2107,7 @@ export default function DoctorDashboard() {
                         gap: '6px'
                       }}
                     >
-                      📊 Export Complete History
+                      ðŸ“Š Export Complete History
                     </button>
                     <button 
                       className="btn btn-outline" 
@@ -2131,7 +2131,7 @@ export default function DoctorDashboard() {
                       )}
                       style={{ fontSize: '14px', background: '#ff6b35', color: '#fff', border: '1px solid #ff6b35' }}
                     >
-                      📊 Complete History
+                      ðŸ“Š Complete History
                     </button>
                     <button 
                       className="btn btn-outline" 
@@ -2227,7 +2227,7 @@ export default function DoctorDashboard() {
                   cursor: 'pointer'
                 }}
               >
-                ×
+                Ã—
               </button>
             </div>
 
@@ -2399,3 +2399,4 @@ export default function DoctorDashboard() {
     </DashboardLayout>
   );
 }
+

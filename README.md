@@ -1,4 +1,4 @@
-# 🏥 Medi-mitra - Telemedicine Platform
+﻿# ðŸ¥ Sehat Saathi - Telemedicine Platform
 
 > **A comprehensive telemedicine platform enabling seamless doctor-patient consultations with AI-powered features, real-time communication, and digital health record management.**
 
@@ -7,52 +7,52 @@
 [![React](https://img.shields.io/badge/React-18.3.1-blue.svg)](https://reactjs.org/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Latest-green.svg)](https://www.mongodb.com/)
 
-## 🌟 Features
+## ðŸŒŸ Features
 
-### 🔐 **Authentication & Authorization**
+### ðŸ” **Authentication & Authorization**
 - Secure user registration and login
 - Role-based access control (Doctor/Patient)
 - JWT-based session management
 - Protected routes and API endpoints
 
-### 👨‍⚕️ **Doctor Dashboard**
+### ðŸ‘¨â€âš•ï¸ **Doctor Dashboard**
 - **Patient Queue Management** - View and manage incoming patient appointments
 - **Attended Patients** - Track completed consultations with detailed records
 - **Digital Records** - Comprehensive patient history with secure unique IDs
 - **Prescription Management** - Create, view, and download prescriptions
 - **Real-time Statistics** - Monitor daily appointments and patient data
 
-### 👤 **Patient Dashboard**  
+### ðŸ‘¤ **Patient Dashboard**  
 - **Health Records** - Personal medical history and prescription tracking
 - **Appointment Booking** - Schedule consultations with available doctors
 - **Medicine Tracker** - Monitor current medications and dosages
 - **Live Medicine Stock** - Check medicine availability in real-time
 
-### 🎥 **Video Consultation System**
+### ðŸŽ¥ **Video Consultation System**
 - **WebRTC Integration** - High-quality peer-to-peer video calls
 - **Real-time Communication** - Instant messaging during consultations
 - **Call Notifications** - Audio/visual alerts for incoming calls
 - **Cross-platform Support** - Works on desktop and mobile browsers
 
-### 🤖 **AI-Powered Features**
+### ðŸ¤– **AI-Powered Features**
 - **RAG System** - Retrieval-Augmented Generation for medical queries
 - **Symptom Analysis** - AI-powered preliminary diagnosis assistance
 - **Smart Recommendations** - Intelligent treatment suggestions
 - **Medical Knowledge Base** - Extensive medical information retrieval
 
-### 📊 **Data Management**
+### ðŸ“Š **Data Management**
 - **Secure Patient Records** - HIPAA-compliant data storage
 - **Export Functionality** - Download medical records in various formats
 - **Digital Prescriptions** - Generate and manage electronic prescriptions
 - **Comprehensive Reporting** - Detailed medical history reports
 
-### 🔄 **Real-time Features**
+### ðŸ”„ **Real-time Features**
 - **Socket.io Integration** - Live updates and notifications
 - **Live Status Tracking** - Real-time appointment status updates
 - **Instant Messaging** - Chat system during consultations
 - **Notification System** - Push notifications for important events
 
-## 🛠️ Technology Stack
+## ðŸ› ï¸ Technology Stack
 
 ### **Frontend**
 - **React 18.3.1** - Modern UI framework with hooks and context
@@ -82,7 +82,7 @@
 - **dotenv** - Environment variable management
 - **Body-parser** - Request body parsing middleware
 
-## 🚀 Quick Start
+## ðŸš€ Quick Start
 
 ### Prerequisites
 - Node.js 18.x or higher
@@ -94,8 +94,8 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Rupendra0/Medi-mitra.git
-   cd Medi-mitra
+   git clone https://github.com/Rupendra0/Sehat-Saathi.git
+   cd Sehat-Saathi
    ```
 
 2. **Backend Setup**
@@ -151,7 +151,7 @@
    - Frontend: `http://localhost:5173`
    - Backend API: `http://localhost:5000`
 
-## 📖 API Documentation
+## ðŸ“– API Documentation
 
 ### Authentication Endpoints
 ```
@@ -200,68 +200,68 @@ call-accepted       - Accept incoming call
 call-rejected       - Reject incoming call
 ```
 
-## 🏗️ Project Structure
+## ðŸ—ï¸ Project Structure
 
 ```
-Medi-mitra/
-├── backend/                 # Backend API server
-│   ├── controllers/         # Route controllers
-│   │   ├── authController.js
-│   │   ├── mainController.js
-│   │   └── debugController.js
-│   ├── middleware/          # Custom middleware
-│   │   └── auth.js
-│   ├── models/             # Database models
-│   │   ├── User.js
-│   │   ├── Appointment.js
-│   │   ├── Prescription.js
-│   │   └── ChatMessage.js
-│   ├── routes/             # API routes
-│   │   ├── auth.js
-│   │   ├── main.js
-│   │   ├── protected.js
-│   │   └── ragRoutes.js
-│   ├── services/           # Business logic
-│   │   ├── socket.js
-│   │   └── ragService.js
-│   ├── config/             # Configuration
-│   │   └── config.js
-│   ├── utils/              # Utilities
-│   │   └── vectorstore.json
-│   └── index.js            # Entry point
-│
-├── frontend/               # React frontend
-│   ├── src/
-│   │   ├── components/     # Reusable components
-│   │   │   ├── Navbar.jsx
-│   │   │   ├── Footer.jsx
-│   │   │   ├── CallNotification.jsx
-│   │   │   └── patient-panels/
-│   │   ├── pages/          # Page components
-│   │   │   ├── Home.jsx
-│   │   │   ├── Login.jsx
-│   │   │   ├── Signup.jsx
-│   │   │   ├── DoctorDashboard.jsx
-│   │   │   ├── PatientDashboard.jsx
-│   │   │   └── CallPage.jsx
-│   │   ├── hooks/          # Custom hooks
-│   │   │   ├── useWebRTC.js
-│   │   │   └── usePatientWebRTC.js
-│   │   ├── utils/          # Utilities
-│   │   │   ├── api.js
-│   │   │   ├── authSlice.js
-│   │   │   ├── store.js
-│   │   │   └── socket.js
-│   │   ├── styles/         # CSS files
-│   │   └── App.jsx         # Main app component
-│   ├── public/             # Static assets
-│   └── package.json
-│
-├── LICENSE                 # MIT License
-└── README.md              # Project documentation
+Sehat-Saathi/
+â”œâ”€â”€ backend/                 # Backend API server
+â”‚   â”œâ”€â”€ controllers/         # Route controllers
+â”‚   â”‚   â”œâ”€â”€ authController.js
+â”‚   â”‚   â”œâ”€â”€ mainController.js
+â”‚   â”‚   â””â”€â”€ debugController.js
+â”‚   â”œâ”€â”€ middleware/          # Custom middleware
+â”‚   â”‚   â””â”€â”€ auth.js
+â”‚   â”œâ”€â”€ models/             # Database models
+â”‚   â”‚   â”œâ”€â”€ User.js
+â”‚   â”‚   â”œâ”€â”€ Appointment.js
+â”‚   â”‚   â”œâ”€â”€ Prescription.js
+â”‚   â”‚   â””â”€â”€ ChatMessage.js
+â”‚   â”œâ”€â”€ routes/             # API routes
+â”‚   â”‚   â”œâ”€â”€ auth.js
+â”‚   â”‚   â”œâ”€â”€ main.js
+â”‚   â”‚   â”œâ”€â”€ protected.js
+â”‚   â”‚   â””â”€â”€ ragRoutes.js
+â”‚   â”œâ”€â”€ services/           # Business logic
+â”‚   â”‚   â”œâ”€â”€ socket.js
+â”‚   â”‚   â””â”€â”€ ragService.js
+â”‚   â”œâ”€â”€ config/             # Configuration
+â”‚   â”‚   â””â”€â”€ config.js
+â”‚   â”œâ”€â”€ utils/              # Utilities
+â”‚   â”‚   â””â”€â”€ vectorstore.json
+â”‚   â””â”€â”€ index.js            # Entry point
+â”‚
+â”œâ”€â”€ frontend/               # React frontend
+â”‚   â”œâ”€â”€ src/
+â”‚   â”‚   â”œâ”€â”€ components/     # Reusable components
+â”‚   â”‚   â”‚   â”œâ”€â”€ Navbar.jsx
+â”‚   â”‚   â”‚   â”œâ”€â”€ Footer.jsx
+â”‚   â”‚   â”‚   â”œâ”€â”€ CallNotification.jsx
+â”‚   â”‚   â”‚   â””â”€â”€ patient-panels/
+â”‚   â”‚   â”œâ”€â”€ pages/          # Page components
+â”‚   â”‚   â”‚   â”œâ”€â”€ Home.jsx
+â”‚   â”‚   â”‚   â”œâ”€â”€ Login.jsx
+â”‚   â”‚   â”‚   â”œâ”€â”€ Signup.jsx
+â”‚   â”‚   â”‚   â”œâ”€â”€ DoctorDashboard.jsx
+â”‚   â”‚   â”‚   â”œâ”€â”€ PatientDashboard.jsx
+â”‚   â”‚   â”‚   â””â”€â”€ CallPage.jsx
+â”‚   â”‚   â”œâ”€â”€ hooks/          # Custom hooks
+â”‚   â”‚   â”‚   â”œâ”€â”€ useWebRTC.js
+â”‚   â”‚   â”‚   â””â”€â”€ usePatientWebRTC.js
+â”‚   â”‚   â”œâ”€â”€ utils/          # Utilities
+â”‚   â”‚   â”‚   â”œâ”€â”€ api.js
+â”‚   â”‚   â”‚   â”œâ”€â”€ authSlice.js
+â”‚   â”‚   â”‚   â”œâ”€â”€ store.js
+â”‚   â”‚   â”‚   â””â”€â”€ socket.js
+â”‚   â”‚   â”œâ”€â”€ styles/         # CSS files
+â”‚   â”‚   â””â”€â”€ App.jsx         # Main app component
+â”‚   â”œâ”€â”€ public/             # Static assets
+â”‚   â””â”€â”€ package.json
+â”‚
+â”œâ”€â”€ LICENSE                 # MIT License
+â””â”€â”€ README.md              # Project documentation
 ```
 
-## 🔧 Configuration
+## ðŸ”§ Configuration
 
 ### Database Schema
 
@@ -328,7 +328,7 @@ Medi-mitra/
 - **Input Validation**: Server-side request validation
 - **Role-based Access**: Protected routes and API endpoints
 
-## 🎯 Usage Examples
+## ðŸŽ¯ Usage Examples
 
 ### Doctor Workflow
 1. **Login** with doctor credentials
@@ -354,7 +354,7 @@ Medi-mitra/
 3. **Receive Treatment Recommendations** based on symptoms
 4. **Access Medical Knowledge** through RAG system
 
-## 🚨 Troubleshooting
+## ðŸš¨ Troubleshooting
 
 ### Common Issues
 
@@ -395,7 +395,7 @@ cat backend/.env
 4. **Verify Database** connections and data structure
 5. **Test with Multiple Browsers** for compatibility
 
-## 🤝 Contributing
+## ðŸ¤ Contributing
 
 We welcome contributions! Please follow these steps:
 
@@ -425,11 +425,11 @@ We welcome contributions! Please follow these steps:
 - Write **clean, readable code** with proper indentation
 - Test **cross-browser compatibility** before submitting
 
-## 📄 License
+## ðŸ“„ License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## ðŸ™ Acknowledgments
 
 - **React Team** for the amazing frontend framework
 - **MongoDB** for the flexible NoSQL database
@@ -438,14 +438,14 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - **Google AI** for generative AI integration
 - **Open Source Community** for various packages and libraries
 
-## 📞 Support
+## ðŸ“ž Support
 
 For support and questions:
 
-- **GitHub Issues**: [Create an issue](https://github.com/Rupendra0/Medi-mitra/issues)
+- **GitHub Issues**: [Create an issue](https://github.com/Rupendra0/Sehat-Saathi/issues)
 - **Email**: [Contact the maintainer](mailto:rupendragangwar07@gmail.com)
 - **Documentation**: Check this README and inline code comments
 
 ---
 
-**Built with ❤️ for better healthcare accessibility**
+**Built with â¤ï¸ for better healthcare accessibility**

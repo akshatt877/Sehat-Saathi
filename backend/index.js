@@ -1,4 +1,4 @@
-import express from "express";
+﻿import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
@@ -15,22 +15,22 @@ import http from "http";
 import { Server as SocketIOServer } from "socket.io";
 import initSocket from "./services/socket.js";
 // import Ragroutes from "./routes/ragRoutes.js";
-import os from "os";   // ✅ Added to detect IPv4
+import os from "os";   // âœ… Added to detect IPv4
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// ✅ MongoDB connection
+// âœ… MongoDB connection
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/medimitra';
 mongoose.connect(MONGO_URI)
-  .then(() => console.log("✅ Connected to MongoDB", mongoose.connection.name))
+  .then(() => console.log("âœ… Connected to MongoDB", mongoose.connection.name))
   .catch((err) => {
-    console.error("❌ MongoDB connection error:", err.message);
-    console.log("⚠️ Server will continue without MongoDB connection");
+    console.error("âŒ MongoDB connection error:", err.message);
+    console.log("âš ï¸ Server will continue without MongoDB connection");
   });
 
-// ✅ CORS config - Allow frontend development server
+// âœ… CORS config - Allow frontend development server
 app.use(cors({
   origin: process.env.FRONTEND_URL || "http://localhost:5173",
   credentials: true,
@@ -53,7 +53,7 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 app.get("/", (req, res) => {
   res.status(200).json({
-    "message": "Hey from backend of Medi-mitra",
+    "message": "Hey from backend of Sehat-Saathi",
     "ServerHealth": "Excellent"
   });
 });
@@ -62,17 +62,17 @@ app.post("/api/gemini-agent", async (req, res) => {
   const { query, language } = req.body;
 
   if (!process.env.OPENAI_API_KEY) {
-    console.error("❌ Missing OPENAI_API_KEY environment variable");
-    return res.status(500).json({ reply: "AI सेवा उपलब्ध नहीं है। कृपया बाद में प्रयास करें।" });
+    console.error("âŒ Missing OPENAI_API_KEY environment variable");
+    return res.status(500).json({ reply: "AI à¤¸à¥‡à¤µà¤¾ à¤‰à¤ªà¤²à¤¬à¥à¤§ à¤¨à¤¹à¥€à¤‚ à¤¹à¥ˆà¥¤ à¤•à¥ƒà¤ªà¤¯à¤¾ à¤¬à¤¾à¤¦ à¤®à¥‡à¤‚ à¤ªà¥à¤°à¤¯à¤¾à¤¸ à¤•à¤°à¥‡à¤‚à¥¤" });
   }
 
   if (!query || !query.trim()) {
-    return res.status(400).json({ reply: "कृपया अपने लक्षण या प्रश्न लिखें।" });
+    return res.status(400).json({ reply: "à¤•à¥ƒà¤ªà¤¯à¤¾ à¤…à¤ªà¤¨à¥‡ à¤²à¤•à¥à¤·à¤£ à¤¯à¤¾ à¤ªà¥à¤°à¤¶à¥à¤¨ à¤²à¤¿à¤–à¥‡à¤‚à¥¤" });
   }
 
   const languageMap = {
-    hi: { name: "Hindi", script: "देवनागरी" },
-    pa: { name: "Punjabi", script: "ਗੁਰਮੁਖੀ" },
+    hi: { name: "Hindi", script: "à¤¦à¥‡à¤µà¤¨à¤¾à¤—à¤°à¥€" },
+    pa: { name: "Punjabi", script: "à¨—à©à¨°à¨®à©à¨–à©€" },
     en: { name: "English", script: "Latin" },
   };
   const normalizedLang = (language || "").toLowerCase();
@@ -103,8 +103,8 @@ Do not copy the patient's words verbatim. Summarise their symptoms first, then g
     const response = completion.choices[0]?.message?.content?.trim() || "";
     res.json({ reply: response });
   } catch (error) {
-    console.error("❌ OpenAI request failed:", error?.message || error);
-    res.status(500).json({ reply: "AI से जवाब नहीं मिला। कृपया बाद में प्रयास करें।" });
+    console.error("âŒ OpenAI request failed:", error?.message || error);
+    res.status(500).json({ reply: "AI à¤¸à¥‡ à¤œà¤µà¤¾à¤¬ à¤¨à¤¹à¥€à¤‚ à¤®à¤¿à¤²à¤¾à¥¤ à¤•à¥ƒà¤ªà¤¯à¤¾ à¤¬à¤¾à¤¦ à¤®à¥‡à¤‚ à¤ªà¥à¤°à¤¯à¤¾à¤¸ à¤•à¤°à¥‡à¤‚à¥¤" });
   }
 });
 
@@ -122,7 +122,7 @@ app.get("/api/public-stats", async (_req, res) => {
       successfulAppointments: completed
     });
   } catch (error) {
-    console.error("❌ Failed to fetch public stats:", error?.message || error);
+    console.error("âŒ Failed to fetch public stats:", error?.message || error);
     res.status(500).json({
       patients: 0,
       doctors: 0,
@@ -131,7 +131,7 @@ app.get("/api/public-stats", async (_req, res) => {
   }
 });
 
-// ✅ Socket.io setup
+// âœ… Socket.io setup
 const server = http.createServer(app);
 
 const io = new SocketIOServer(server, {
@@ -161,7 +161,7 @@ app.post("/api/appointments/complete", async (req, res) => {
   }
 });
 
-// ✅ Get system IPv4 automatically
+// âœ… Get system IPv4 automatically
 function getLocalIPv4() {
   const nets = os.networkInterfaces();
   for (const name of Object.keys(nets)) {
@@ -176,7 +176,8 @@ function getLocalIPv4() {
 
 // Start server
 server.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`ðŸš€ Server running on http://localhost:${PORT}`);
 }).on('error', (err) => {
-  console.error('❌ Server failed to start:', err.message);
+  console.error('âŒ Server failed to start:', err.message);
 });
+

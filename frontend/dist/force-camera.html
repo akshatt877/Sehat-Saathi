@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camera Test - Medi-Mitra</title>
+    <title>Camera Test - Sehat-Saathi</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -44,13 +44,13 @@
     </style>
 </head>
 <body>
-    <h1>🎥 Medi-Mitra Camera Test</h1>
+    <h1>ðŸŽ¥ Sehat-Saathi Camera Test</h1>
     <p>This page tests camera and microphone functionality before joining a video call.</p>
     
     <div>
-        <button onclick="initializeCamera()">📹 Start Camera</button>
-        <button onclick="stopCamera()">⏹ Stop Camera</button>
-        <button onclick="testWebRTC()">🔗 Test WebRTC</button>
+        <button onclick="initializeCamera()">ðŸ“¹ Start Camera</button>
+        <button onclick="stopCamera()">â¹ Stop Camera</button>
+        <button onclick="testWebRTC()">ðŸ”— Test WebRTC</button>
     </div>
 
     <div class="video-container">
@@ -84,7 +84,7 @@
 
         async function initializeCamera() {
             try {
-                log('🎥 Requesting camera and microphone access...', 'info');
+                log('ðŸŽ¥ Requesting camera and microphone access...', 'info');
                 
                 const constraints = {
                     video: { 
@@ -104,9 +104,9 @@
                 const localVideo = document.getElementById('localVideo');
                 localVideo.srcObject = localStream;
                 
-                log(`✅ Camera initialized successfully!`, 'success');
-                log(`📊 Video tracks: ${localStream.getVideoTracks().length}`, 'info');
-                log(`🎤 Audio tracks: ${localStream.getAudioTracks().length}`, 'info');
+                log(`âœ… Camera initialized successfully!`, 'success');
+                log(`ðŸ“Š Video tracks: ${localStream.getVideoTracks().length}`, 'info');
+                log(`ðŸŽ¤ Audio tracks: ${localStream.getAudioTracks().length}`, 'info');
                 
                 // Log track details
                 localStream.getTracks().forEach((track, index) => {
@@ -114,16 +114,16 @@
                 });
                 
             } catch (error) {
-                log(`❌ Camera initialization failed: ${error.message}`, 'error');
+                log(`âŒ Camera initialization failed: ${error.message}`, 'error');
                 
                 if (error.name === 'NotAllowedError') {
-                    log('🚫 Permission denied - Please allow camera and microphone access', 'error');
+                    log('ðŸš« Permission denied - Please allow camera and microphone access', 'error');
                 } else if (error.name === 'NotFoundError') {
-                    log('📷 No camera/microphone found on this device', 'error');
+                    log('ðŸ“· No camera/microphone found on this device', 'error');
                 } else if (error.name === 'NotReadableError') {
-                    log('🔒 Camera/microphone is already in use by another application', 'error');
+                    log('ðŸ”’ Camera/microphone is already in use by another application', 'error');
                 } else if (error.name === 'OverconstrainedError') {
-                    log('⚙️ Camera constraints not supported', 'error');
+                    log('âš™ï¸ Camera constraints not supported', 'error');
                 }
             }
         }
@@ -132,17 +132,17 @@
             if (localStream) {
                 localStream.getTracks().forEach(track => {
                     track.stop();
-                    log(`⏹ Stopped ${track.kind} track`, 'warning');
+                    log(`â¹ Stopped ${track.kind} track`, 'warning');
                 });
                 localStream = null;
                 document.getElementById('localVideo').srcObject = null;
-                log('📷 Camera stopped', 'warning');
+                log('ðŸ“· Camera stopped', 'warning');
             }
         }
 
         async function testWebRTC() {
             try {
-                log('🔗 Testing WebRTC peer connection...', 'info');
+                log('ðŸ”— Testing WebRTC peer connection...', 'info');
                 
                 const iceServers = [
                     { urls: 'stun:stun.l.google.com:19302' },
@@ -152,24 +152,24 @@
                 peerConnection = new RTCPeerConnection({ iceServers });
                 
                 peerConnection.oniceconnectionstatechange = () => {
-                    log(`🌐 ICE connection state: ${peerConnection.iceConnectionState}`, 'info');
+                    log(`ðŸŒ ICE connection state: ${peerConnection.iceConnectionState}`, 'info');
                 };
                 
                 peerConnection.onconnectionstatechange = () => {
-                    log(`🔗 Peer connection state: ${peerConnection.connectionState}`, 'info');
+                    log(`ðŸ”— Peer connection state: ${peerConnection.connectionState}`, 'info');
                 };
                 
                 if (localStream) {
                     localStream.getTracks().forEach(track => {
                         peerConnection.addTrack(track, localStream);
-                        log(`➕ Added ${track.kind} track to peer connection`, 'success');
+                        log(`âž• Added ${track.kind} track to peer connection`, 'success');
                     });
                 }
                 
-                log('✅ WebRTC peer connection created successfully!', 'success');
+                log('âœ… WebRTC peer connection created successfully!', 'success');
                 
             } catch (error) {
-                log(`❌ WebRTC test failed: ${error.message}`, 'error');
+                log(`âŒ WebRTC test failed: ${error.message}`, 'error');
             }
         }
 
@@ -186,8 +186,8 @@
                 device = 'Desktop/Laptop';
             }
             
-            log(`💻 Device detected: ${device}`, 'info');
-            log(`🌐 User Agent: ${userAgent}`, 'info');
+            log(`ðŸ’» Device detected: ${device}`, 'info');
+            log(`ðŸŒ User Agent: ${userAgent}`, 'info');
         }
 
         // Check media device capabilities
@@ -197,8 +197,8 @@
                 const videoDevices = devices.filter(device => device.kind === 'videoinput');
                 const audioDevices = devices.filter(device => device.kind === 'audioinput');
                 
-                log(`📹 Video devices found: ${videoDevices.length}`, 'info');
-                log(`🎤 Audio devices found: ${audioDevices.length}`, 'info');
+                log(`ðŸ“¹ Video devices found: ${videoDevices.length}`, 'info');
+                log(`ðŸŽ¤ Audio devices found: ${audioDevices.length}`, 'info');
                 
                 videoDevices.forEach((device, index) => {
                     log(`Camera ${index + 1}: ${device.label || 'Unknown Camera'}`, 'info');
@@ -209,13 +209,13 @@
                 });
                 
             } catch (error) {
-                log(`❌ Could not enumerate devices: ${error.message}`, 'error');
+                log(`âŒ Could not enumerate devices: ${error.message}`, 'error');
             }
         }
 
         // Initialize on page load
         window.addEventListener('load', () => {
-            log('🚀 Camera test page loaded', 'success');
+            log('ðŸš€ Camera test page loaded', 'success');
             detectDevice();
             checkMediaDevices();
         });

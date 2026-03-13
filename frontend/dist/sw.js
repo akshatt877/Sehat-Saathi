@@ -1,4 +1,4 @@
-// Service Worker for Medi-mitra Offline Functionality
+﻿// Service Worker for Sehat-Saathi Offline Functionality
 const CACHE_NAME = 'medimitra-offline-v1';
 const APP_SHELL_CACHE = 'medimitra-shell-v1';
 const PRESCRIPTION_CACHE = 'medimitra-prescriptions-v1';

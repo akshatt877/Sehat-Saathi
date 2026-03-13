@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import logo from "../logo.png";
 
 function Footer() {
@@ -27,7 +27,7 @@ function Footer() {
           }}>
             <img 
               src={logo} 
-              alt="Medi Mitra Logo" 
+              alt="Sehat-Saathi Logo" 
               style={{ 
                 height: '98px', 
                 width: 'auto',
@@ -40,7 +40,7 @@ function Footer() {
               color: 'var(--color-footer-text)',
               margin: 0
             }}>
-              Medi Mitra
+              Sehat-Saathi
             </h3>
           </div>
           <p style={{ 
@@ -109,9 +109,9 @@ function Footer() {
             Contact
           </h4>
           <div style={{ color: 'var(--color-footer-text)', opacity: 0.9 }}>
-            <p style={{ margin: '0 0 0.5rem 0' }}>📍 Nabha, Punjab, India</p>
-            <p style={{ margin: '0 0 0.5rem 0' }}>📞 +91 12345 67890</p>
-            <p style={{ margin: 0 }}>✉️ support@medimitra.com</p>
+            <p style={{ margin: '0 0 0.5rem 0' }}>ðŸ“ Nabha, Punjab, India</p>
+            <p style={{ margin: '0 0 0.5rem 0' }}>ðŸ“ž +91 12345 67890</p>
+            <p style={{ margin: 0 }}>âœ‰ï¸ support@medimitra.com</p>
           </div>
         </div>
       </div>
@@ -128,7 +128,7 @@ function Footer() {
           margin: 0,
           fontSize: '0.875rem'
         }}>
-          © 2025 Medi Mitra. All rights reserved. | Empowering rural healthcare through technology.
+          Â© 2025 Sehat-Saathi. All rights reserved. | Empowering rural healthcare through technology.
         </p>
       </div>
     </footer>
@@ -136,3 +136,4 @@ function Footer() {
 }
 
 export default Footer;
+

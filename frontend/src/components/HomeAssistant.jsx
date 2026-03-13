@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+﻿import React, { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import AnimatedButton from "./AnimatedButton";
 import logo from "../logo.png";
@@ -25,7 +25,7 @@ export default function HomeAssistant() {
       window.removeEventListener("user-updated", handleUserUpdated);
     };
   }, []);
-  // (Video call demo removed by request – keeping logic minimal for AI assistant only)
+  // (Video call demo removed by request â€“ keeping logic minimal for AI assistant only)
   const [query, setQuery] = useState("");
   const [response, setResponse] = useState("");
   const [loading, setLoading] = useState(false);
@@ -52,7 +52,7 @@ export default function HomeAssistant() {
 
   const handleSubmit = async () => {
     if (!query.trim()) {
-      setError("कृपया अपने लक्षण बताएं / Please describe your symptoms.");
+      setError("à¤•à¥ƒà¤ªà¤¯à¤¾ à¤…à¤ªà¤¨à¥‡ à¤²à¤•à¥à¤·à¤£ à¤¬à¤¤à¤¾à¤à¤‚ / Please describe your symptoms.");
       return;
     }
     setLoading(true);
@@ -66,9 +66,9 @@ export default function HomeAssistant() {
       });
       if (!res.ok) throw new Error("Server error");
       const data = await res.json();
-      setResponse(data.reply || "AI से कोई उत्तर प्राप्त नहीं हुआ।");
+      setResponse(data.reply || "AI à¤¸à¥‡ à¤•à¥‹à¤ˆ à¤‰à¤¤à¥à¤¤à¤° à¤ªà¥à¤°à¤¾à¤ªà¥à¤¤ à¤¨à¤¹à¥€à¤‚ à¤¹à¥à¤†à¥¤");
     } catch (err) {
-      setError("कुछ गलत हो गया है। कृपया फिर से प्रयास करें।");
+      setError("à¤•à¥à¤› à¤—à¤²à¤¤ à¤¹à¥‹ à¤—à¤¯à¤¾ à¤¹à¥ˆà¥¤ à¤•à¥ƒà¤ªà¤¯à¤¾ à¤«à¤¿à¤° à¤¸à¥‡ à¤ªà¥à¤°à¤¯à¤¾à¤¸ à¤•à¤°à¥‡à¤‚à¥¤");
     } finally {
       setLoading(false);
     }
@@ -118,7 +118,7 @@ export default function HomeAssistant() {
           <div className="flex items-center justify-center mb-4 gap-3">
             <img
               src={logo}
-              alt="Medi Mitra Logo"
+              alt="Sehat-Saathi Logo"
               className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain"
               style={{
                 filter:
@@ -145,7 +145,7 @@ export default function HomeAssistant() {
           <textarea
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Describe your symptoms in detail... (हिंदी में भी लिख सकते हैं)"
+            placeholder="Describe your symptoms in detail... (à¤¹à¤¿à¤‚à¤¦à¥€ à¤®à¥‡à¤‚ à¤­à¥€ à¤²à¤¿à¤– à¤¸à¤•à¤¤à¥‡ à¤¹à¥ˆà¤‚)"
             rows="4"
             className="w-full p-4 rounded-lg border-2 resize-none transition-all duration-200"
             style={{
@@ -211,7 +211,7 @@ export default function HomeAssistant() {
                   fontWeight: "600",
                 }}
               >
-                <span>🩺</span>
+                <span>ðŸ©º</span>
                 <strong>AI Health Analysis:</strong>
               </div>
               <div
@@ -229,3 +229,4 @@ export default function HomeAssistant() {
     </div>
   );
 }
+

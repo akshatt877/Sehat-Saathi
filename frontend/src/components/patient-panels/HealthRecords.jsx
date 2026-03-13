@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+﻿import React, { useEffect, useMemo, useState } from 'react';
 import { useLanguage } from '../../utils/LanguageProvider';
 import api from '../../utils/api';
 
@@ -228,7 +228,7 @@ const HealthRecords = ({
       lines.push('No medicines were recorded.');
     }
 
-    lines.push('', `Notes: ${prescription.notes || 'No notes provided.'}`, '', 'Powered by Medi-mitra');
+    lines.push('', `Notes: ${prescription.notes || 'No notes provided.'}`, '', 'Powered by Sehat-Saathi');
 
     const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
@@ -368,3 +368,4 @@ const HealthRecords = ({
 };
 
 export default HealthRecords;
+
