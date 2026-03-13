@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: sehat-saathi-backend
+    env: node
+    region: singapore
+    plan: free
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false        # Set this in Render dashboard: mongodb+srv://...
+      - key: JWT_SECRET
+        sync: false        # Set this in Render dashboard: any strong random string
+      - key: OPENAI_API_KEY
+        sync: false        # Set this in Render dashboard: sk-...
+      - key: FRONTEND_URL
+        sync: false        # Set this in Render dashboard: https://your-app.vercel.app
