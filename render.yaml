@@ -12,10 +12,10 @@ services:
       - key: NODE_ENV
         value: production
       - key: MONGO_URI
-        sync: false        # Set this in Render dashboard: mongodb+srv://...
+        sync: false # Set this in Render dashboard: mongodb+srv://...
       - key: JWT_SECRET
-        sync: false        # Set this in Render dashboard: any strong random string
+        sync: false # Set this in Render dashboard: any strong random string
       - key: OPENAI_API_KEY
-        sync: false        # Set this in Render dashboard: sk-...
+        sync: false # Set this in Render dashboard: sk-...
       - key: FRONTEND_URL
-        sync: false        # Set this in Render dashboard: https://your-app.vercel.app
+        sync: false # Set this in Render dashboard: https://your-app.vercel.app

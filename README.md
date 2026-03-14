@@ -1,4 +1,4 @@
-﻿# ðŸ¥ Sehat Saathi - Telemedicine Platform
+﻿# Sehat Saathi - Telemedicine Platform
 
 > **A comprehensive telemedicine platform enabling seamless doctor-patient consultations with AI-powered features, real-time communication, and digital health record management.**
 
@@ -7,52 +7,52 @@
 [![React](https://img.shields.io/badge/React-18.3.1-blue.svg)](https://reactjs.org/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Latest-green.svg)](https://www.mongodb.com/)
 
-## ðŸŒŸ Features
+##  Features
 
-### ðŸ” **Authentication & Authorization**
+###  **Authentication & Authorization**
 - Secure user registration and login
 - Role-based access control (Doctor/Patient)
 - JWT-based session management
 - Protected routes and API endpoints
 
-### ðŸ‘¨â€âš•ï¸ **Doctor Dashboard**
+###  **Doctor Dashboard**
 - **Patient Queue Management** - View and manage incoming patient appointments
 - **Attended Patients** - Track completed consultations with detailed records
 - **Digital Records** - Comprehensive patient history with secure unique IDs
 - **Prescription Management** - Create, view, and download prescriptions
 - **Real-time Statistics** - Monitor daily appointments and patient data
 
-### ðŸ‘¤ **Patient Dashboard**  
+### **Patient Dashboard**  
 - **Health Records** - Personal medical history and prescription tracking
 - **Appointment Booking** - Schedule consultations with available doctors
 - **Medicine Tracker** - Monitor current medications and dosages
 - **Live Medicine Stock** - Check medicine availability in real-time
 
-### ðŸŽ¥ **Video Consultation System**
+###  **Video Consultation System**
 - **WebRTC Integration** - High-quality peer-to-peer video calls
 - **Real-time Communication** - Instant messaging during consultations
 - **Call Notifications** - Audio/visual alerts for incoming calls
 - **Cross-platform Support** - Works on desktop and mobile browsers
 
-### ðŸ¤– **AI-Powered Features**
+###  **AI-Powered Features**
 - **RAG System** - Retrieval-Augmented Generation for medical queries
 - **Symptom Analysis** - AI-powered preliminary diagnosis assistance
 - **Smart Recommendations** - Intelligent treatment suggestions
 - **Medical Knowledge Base** - Extensive medical information retrieval
 
-### ðŸ“Š **Data Management**
+### **Data Management**
 - **Secure Patient Records** - HIPAA-compliant data storage
 - **Export Functionality** - Download medical records in various formats
 - **Digital Prescriptions** - Generate and manage electronic prescriptions
 - **Comprehensive Reporting** - Detailed medical history reports
 
-### ðŸ”„ **Real-time Features**
+###  **Real-time Features**
 - **Socket.io Integration** - Live updates and notifications
 - **Live Status Tracking** - Real-time appointment status updates
 - **Instant Messaging** - Chat system during consultations
 - **Notification System** - Push notifications for important events
 
-## ðŸ› ï¸ Technology Stack
+##  Technology Stack
 
 ### **Frontend**
 - **React 18.3.1** - Modern UI framework with hooks and context
@@ -82,7 +82,7 @@
 - **dotenv** - Environment variable management
 - **Body-parser** - Request body parsing middleware
 
-## ðŸš€ Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Node.js 18.x or higher
@@ -151,7 +151,7 @@
    - Frontend: `http://localhost:5173`
    - Backend API: `http://localhost:5000`
 
-## ðŸ“– API Documentation
+##  API Documentation
 
 ### Authentication Endpoints
 ```
@@ -199,69 +199,6 @@ call-user           - Initiate video call
 call-accepted       - Accept incoming call
 call-rejected       - Reject incoming call
 ```
-
-## ðŸ—ï¸ Project Structure
-
-```
-Sehat-Saathi/
-â”œâ”€â”€ backend/                 # Backend API server
-â”‚   â”œâ”€â”€ controllers/         # Route controllers
-â”‚   â”‚   â”œâ”€â”€ authController.js
-â”‚   â”‚   â”œâ”€â”€ mainController.js
-â”‚   â”‚   â””â”€â”€ debugController.js
-â”‚   â”œâ”€â”€ middleware/          # Custom middleware
-â”‚   â”‚   â””â”€â”€ auth.js
-â”‚   â”œâ”€â”€ models/             # Database models
-â”‚   â”‚   â”œâ”€â”€ User.js
-â”‚   â”‚   â”œâ”€â”€ Appointment.js
-â”‚   â”‚   â”œâ”€â”€ Prescription.js
-â”‚   â”‚   â””â”€â”€ ChatMessage.js
-â”‚   â”œâ”€â”€ routes/             # API routes
-â”‚   â”‚   â”œâ”€â”€ auth.js
-â”‚   â”‚   â”œâ”€â”€ main.js
-â”‚   â”‚   â”œâ”€â”€ protected.js
-â”‚   â”‚   â””â”€â”€ ragRoutes.js
-â”‚   â”œâ”€â”€ services/           # Business logic
-â”‚   â”‚   â”œâ”€â”€ socket.js
-â”‚   â”‚   â””â”€â”€ ragService.js
-â”‚   â”œâ”€â”€ config/             # Configuration
-â”‚   â”‚   â””â”€â”€ config.js
-â”‚   â”œâ”€â”€ utils/              # Utilities
-â”‚   â”‚   â””â”€â”€ vectorstore.json
-â”‚   â””â”€â”€ index.js            # Entry point
-â”‚
-â”œâ”€â”€ frontend/               # React frontend
-â”‚   â”œâ”€â”€ src/
-â”‚   â”‚   â”œâ”€â”€ components/     # Reusable components
-â”‚   â”‚   â”‚   â”œâ”€â”€ Navbar.jsx
-â”‚   â”‚   â”‚   â”œâ”€â”€ Footer.jsx
-â”‚   â”‚   â”‚   â”œâ”€â”€ CallNotification.jsx
-â”‚   â”‚   â”‚   â””â”€â”€ patient-panels/
-â”‚   â”‚   â”œâ”€â”€ pages/          # Page components
-â”‚   â”‚   â”‚   â”œâ”€â”€ Home.jsx
-â”‚   â”‚   â”‚   â”œâ”€â”€ Login.jsx
-â”‚   â”‚   â”‚   â”œâ”€â”€ Signup.jsx
-â”‚   â”‚   â”‚   â”œâ”€â”€ DoctorDashboard.jsx
-â”‚   â”‚   â”‚   â”œâ”€â”€ PatientDashboard.jsx
-â”‚   â”‚   â”‚   â””â”€â”€ CallPage.jsx
-â”‚   â”‚   â”œâ”€â”€ hooks/          # Custom hooks
-â”‚   â”‚   â”‚   â”œâ”€â”€ useWebRTC.js
-â”‚   â”‚   â”‚   â””â”€â”€ usePatientWebRTC.js
-â”‚   â”‚   â”œâ”€â”€ utils/          # Utilities
-â”‚   â”‚   â”‚   â”œâ”€â”€ api.js
-â”‚   â”‚   â”‚   â”œâ”€â”€ authSlice.js
-â”‚   â”‚   â”‚   â”œâ”€â”€ store.js
-â”‚   â”‚   â”‚   â””â”€â”€ socket.js
-â”‚   â”‚   â”œâ”€â”€ styles/         # CSS files
-â”‚   â”‚   â””â”€â”€ App.jsx         # Main app component
-â”‚   â”œâ”€â”€ public/             # Static assets
-â”‚   â””â”€â”€ package.json
-â”‚
-â”œâ”€â”€ LICENSE                 # MIT License
-â””â”€â”€ README.md              # Project documentation
-```
-
-## ðŸ”§ Configuration
 
 ### Database Schema
 
@@ -328,7 +265,7 @@ Sehat-Saathi/
 - **Input Validation**: Server-side request validation
 - **Role-based Access**: Protected routes and API endpoints
 
-## ðŸŽ¯ Usage Examples
+## Usage Examples
 
 ### Doctor Workflow
 1. **Login** with doctor credentials
@@ -354,7 +291,7 @@ Sehat-Saathi/
 3. **Receive Treatment Recommendations** based on symptoms
 4. **Access Medical Knowledge** through RAG system
 
-## ðŸš¨ Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -395,7 +332,7 @@ cat backend/.env
 4. **Verify Database** connections and data structure
 5. **Test with Multiple Browsers** for compatibility
 
-## ðŸ¤ Contributing
+##  Contributing
 
 We welcome contributions! Please follow these steps:
 
@@ -425,11 +362,11 @@ We welcome contributions! Please follow these steps:
 - Write **clean, readable code** with proper indentation
 - Test **cross-browser compatibility** before submitting
 
-## ðŸ“„ License
+##  License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
-## ðŸ™ Acknowledgments
+## Acknowledgments
 
 - **React Team** for the amazing frontend framework
 - **MongoDB** for the flexible NoSQL database
@@ -438,7 +375,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - **Google AI** for generative AI integration
 - **Open Source Community** for various packages and libraries
 
-## ðŸ“ž Support
+##  Support
 
 For support and questions:
 
